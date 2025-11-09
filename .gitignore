@@ -1,0 +1,28 @@
+# Root files
+.env
+docker-compose.yml
+
+# Node modules and logs (backend)
+backend/node_modules/
+backend/logs/
+backend/.env
+
+# Dependency directories (frontend)
+frontend/node_modules/
+frontend/.env
+frontend/.env.example
+
+# OS/Editor files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build output
+frontend/build/
+backend/build/
+dist/
+
+# Optional: Ignore coverage reports
+coverage/
