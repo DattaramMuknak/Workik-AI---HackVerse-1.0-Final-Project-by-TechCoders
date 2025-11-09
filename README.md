@@ -108,7 +108,3 @@ npm run test # frontend tests (if configured)
 
 Contributions are welcome! Please fork, create a feature branch, and open a pull request with a clear description, screenshots (if UI), and tests where relevant.
 
-
-
-
-## Monorepo Structure
