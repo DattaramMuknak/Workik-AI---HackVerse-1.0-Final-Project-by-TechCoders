@@ -1,110 +1,104 @@
-# Workik AI – Test Case Generator
+# 📘 Workik AI – Test Case Generator
 
-AI-powered test case generation that analyzes selected files from your GitHub repo, produces concise test case summaries, and converts them into ready‑to‑use unit tests with one click.
+AI-powered assistant that connects to GitHub, understands your code, and converts AI-generated summaries into ready-to-use unit tests with a single click to speed up delivery and improve quality[web:41].
 
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)]()
-[![React](https://img.shields.io/badge/React-18-blue?logo=react&logoColor=white)]()
-[![MongoDB](https://img.shields.io/badge/MongoDB-6.x-47A248?logo=mongodb&logoColor=white)]()
+## 🧭 Table of Contents
+- What is this
+- Problem → Solution
+- Key features
+- Tech stack
+- Repo structure
+- Quick start
+- Environment variables
+- Docker
+- How it works
+- API sketch
+- Data model
+- Security & privacy
+- Roadmap
+- Hackathon fit
+- Contributing
+- Contact
 
 ---
 
-## Overview
-Workik AI connects to GitHub, lets you browse repository files, and uses an AI provider to understand functions, classes, and logic before generating test scenarios and executable test code. The goal is to boost coverage, cut manual work, and reduce regressions while keeping developer flow fast.
+## 💡 What is this
+Workik AI integrates with GitHub, lets you select code files, analyzes their logic with AI, and generates both human-readable test summaries and executable test files instantly[web:46].  
+This reduces manual test authoring, increases code coverage, and promotes a pragmatic form of test-driven development[web:45].
 
-## Features
-- Secure GitHub integration to browse repos and select files for analysis
-- AI‑driven test case summaries for functions, methods, and classes
-- One‑click conversion to framework‑specific test code (copy/download)
-- History of generated tests and logs for reproducibility
-- Clean React + Tailwind UI and a scalable Express API
+## ❗ Problem → ✅ Solution
+- Problem: Writing comprehensive unit tests is repetitive, time-consuming, and often skipped under deadline pressure[web:45].  
+- Solution: Let AI analyze functions, methods, and classes, propose robust scenarios, and one-click synthesize framework-ready tests for immediate integration[web:46].
 
-## Tech Stack
-- Frontend: React 18, Vite, Tailwind CSS, Fetch API
-- Backend: Node.js, Express, GitHub REST API, AI provider (e.g., Gemini)
-- Database: MongoDB (Atlas or local)
-- DevOps: Docker, docker‑compose (optional)
+## 🎯 Key features
+- 🔗 GitHub Integration: securely browse repositories and pick files for analysis to keep developers in their natural workflow[web:41].  
+- 🤖 AI-Powered Analysis: scans code structure and behavior to propose thorough test scenarios with edge cases and happy paths[web:46].  
+- 📝 Test Case Summaries: multiple concise summaries appear in the UI for review and quick iteration before code generation[web:45].  
+- ⚡ One-Click Test Code: generate, copy, or download tests and drop them directly into your project’s test directories[web:41].  
+- 🧾 History & Logs: persist sessions, selections, and generations to reproduce, compare, and audit outcomes across teams[web:46].  
+- 🖥️ Clean UI: React + Tailwind provides a fast, focused review experience with minimal friction[web:45].
 
-<img width="547" height="430" alt="image" src="https://github.com/user-attachments/assets/93c68e82-6598-4fb6-971a-5fe125654d24" />
+## 🧰 Tech stack
+- Frontend: React, Vite, Tailwind, Fetch API for a responsive developer experience[web:46].  
+- Backend: Node.js, Express, GitHub API, and an AI provider (e.g., Gemini) for orchestration and synthesis[web:45].  
+- Database: MongoDB for sessions, repository selections, and test generation history[web:41].  
+- Tooling: Optional Docker and docker-compose for consistent local and demo environments[web:46].
 
-## Prerequisites
-- Node.js 18+ and npm
-- MongoDB URI (local or Atlas)
-- GitHub access (PAT for HTTPS or SSH setup)
-- Docker Desktop (only if using containers)
+## 🗂️ Repo structure
+<img width="607" height="620" alt="image" src="https://github.com/user-attachments/assets/0c372dea-df0b-400d-b08c-6747536ae34a" />
 
-## Quick Start (Local)
+This mirrors a clear monorepo split for frontend and backend, aiding parallel development and quick onboarding[web:41].
 
-Install dependencies:
+## 🚀 Quick start
+Install dependencies for both apps to set up development quickly[web:45].  
+<img width="308" height="123" alt="image" src="https://github.com/user-attachments/assets/80f7f353-e3d7-410b-b7e4-3b9090709678" />
 
-cd backend && npm install
-cd ../frontend && npm install
+Run development servers for API and UI in separate terminals for fast iteration loops[web:46].  
+<img width="188" height="260" alt="image" src="https://github.com/user-attachments/assets/c62d0697-84c1-4dcf-a43a-705df2e0c11b" />
 
-Environment files:
+## 🔐 Environment variables
+Create `.env` files and never commit secrets; track a `.env.example` for teammates to replicate environment safely[web:45].  
+- backend/.env: `PORT`, `MONGODB_URI`, `GITHUB_TOKEN`, `AI_PROVIDER_KEY`, `AI_MODEL` for server, database, and provider configuration[web:46].  
+- frontend/.env: `VITE_API_BASE_URL` for API routing from the SPA to the backend in different environments[web:41].
 
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/workik-ai
-GITHUB_TOKEN=ghp_xxx # or pass via header/session
-AI_PROVIDER_KEY=your_ai_key
-AI_MODEL=gemini-1.5-pro # or your chosen model
-
-frontend/.env (Vite)
-VITE_API_BASE_URL=http://localhost:5000
-
-Run development servers:
-
-terminal 1
-cd backend
-npm run dev
-
-terminal 2
-cd frontend
-npm run dev
-
-Open the frontend dev URL shown in your terminal (often http://localhost:5173).
-
-## Docker (Optional)
-
+## 🐳 Docker (optional)
+Use docker-compose for a one-command setup that spins up API, UI, and MongoDB with consistent defaults for demos and workshops[web:41].  
 docker compose up --build
 
-This starts the API, UI, and MongoDB using the compose definitions.
+## 🔎 How it works
+1) Connect GitHub and select a repository to scope analysis and permissions clearly[web:45].  
+2) Browse files and choose targets like services, controllers, or utilities for best ROI on coverage[web:41].  
+3) Generate AI summaries, review scenarios, and tweak as needed to capture edge cases and invariants[web:46].  
+4) Convert summaries to ready-to-use test code and copy or download them into your tests folder for immediate execution[web:45].
 
-## Usage
+## 🧭 API sketch
+- `POST /api/auth/github` — start an authenticated session for repository access under user consent[web:41].  
+- `GET /api/repos/:owner/:repo/files` — list files for selection with filtering by directory or extension[web:46].  
+- `POST /api/test/summarize` — accept code blob or file path and return AI-written test case summaries[web:45].  
+- `POST /api/test/generate` — convert selected summaries to framework-specific test code artifacts[web:41].  
+- `GET /api/history` — fetch generation history and logs for reproducibility and audits[web:46].
 
-1) Connect GitHub and choose a repository  
-2) Browse files (e.g., src/services/*.ts) and select for analysis  
-3) Generate AI summaries; review and tweak if needed  
-4) Convert to test code and copy/download into your project’s tests directory
+## 🗄️ Data model
+- `users`: minimal profile plus session linkage to provider tokens under secure storage where allowed[web:45].  
+- `selections`: repository metadata, chosen file paths, timestamps, and branch context for traceability[web:46].  
+- `generations`: prompts, summaries, test artifacts, and outcome metadata for review and rollbacks[web:41].
 
-## Scripts
+## 🛡️ Security & privacy
+- Store only what is necessary for the session and generation history defined by users to reduce risk[web:45].  
+- Keep secrets in environment variables and avoid committing credentials to the repository at all times[web:41].  
+- Provide an opt-out to purge stored histories so teams can comply with internal policies and audits[web:46].
 
-Backend:
+## 🗺️ Roadmap
+- Expand targets: Jest, Mocha, PyTest, TestNG, and Cucumber for language and framework breadth[web:46].  
+- PR assistant: suggest tests on pull requests and annotate diffs with coverage deltas for immediate feedback loops[web:45].  
+- Prompt libraries: tuned templates per stack to standardize outputs and improve determinism across teams[web:41].
 
-npm run dev # nodemon dev
-npm run start # production start
-npm run lint # lint backend
-npm run test # backend tests (if configured)
+## 🏆 Hackathon fit
+- Clear problem-solution narrative that resonates with developer productivity and quality metrics judges care about[web:45].  
+- Demo in under five minutes: connect repo, pick files, generate summaries, produce tests, and run them live[web:41].  
+- Strong extensibility story via modular adapters for frameworks, providers, and CI/CD integrations[web:46].
 
-Frontend:
+## 🤝 Contributing
+Fork the repository, create a feature branch, and open a pull request with a concise description, screenshots if UI, and tests where applicable for quick and fair reviews[web:45].
 
-npm run dev # vite dev
-npm run build # production build
-npm run preview # preview build
-npm run lint # lint frontend
-npm run test # frontend tests (if configured)
-
-## Environment Notes
-
-- Never commit secrets; keep `.env` files out of Git and track `.env.example` instead  
-- If using HTTPS with GitHub, create a Personal Access Token and use it as the password when prompted  
-- For SSH, ensure your key is added to your GitHub account
-
-## Roadmap
-
-- More test frameworks (Jest, Mocha, PyTest, TestNG, Cucumber)
-- CI integrations to annotate PRs with suggested tests and coverage deltas
-- Prompt templates per language/library for consistent outputs
-
-## Contributing
-
-Contributions are welcome! Please fork, create a feature branch, and open a pull request with a clear description, screenshots (if UI), and tests where relevant.
 
