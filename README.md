@@ -16,9 +16,7 @@ AI-powered assistant that connects to GitHub, understands your code, and convert
 - Data model
 - Security & privacy
 - Roadmap
-- Hackathon fit
 - Contributing
-- Contact
 
 ---
 
@@ -45,15 +43,18 @@ This reduces manual test authoring, increases code coverage, and promotes a prag
 - Tooling: Optional Docker and docker-compose for consistent local and demo environments[web:46].
 
 ## 🗂️ Repo structure
+
 <img width="607" height="620" alt="image" src="https://github.com/user-attachments/assets/0c372dea-df0b-400d-b08c-6747536ae34a" />
 
 This mirrors a clear monorepo split for frontend and backend, aiding parallel development and quick onboarding[web:41].
 
 ## 🚀 Quick start
 Install dependencies for both apps to set up development quickly[web:45].  
+
 <img width="308" height="123" alt="image" src="https://github.com/user-attachments/assets/80f7f353-e3d7-410b-b7e4-3b9090709678" />
 
 Run development servers for API and UI in separate terminals for fast iteration loops[web:46].  
+
 <img width="188" height="260" alt="image" src="https://github.com/user-attachments/assets/c62d0697-84c1-4dcf-a43a-705df2e0c11b" />
 
 ## 🔐 Environment variables
@@ -93,12 +94,8 @@ docker compose up --build
 - PR assistant: suggest tests on pull requests and annotate diffs with coverage deltas for immediate feedback loops[web:45].  
 - Prompt libraries: tuned templates per stack to standardize outputs and improve determinism across teams[web:41].
 
-## 🏆 Hackathon fit
-- Clear problem-solution narrative that resonates with developer productivity and quality metrics judges care about[web:45].  
-- Demo in under five minutes: connect repo, pick files, generate summaries, produce tests, and run them live[web:41].  
-- Strong extensibility story via modular adapters for frameworks, providers, and CI/CD integrations[web:46].
-
 ## 🤝 Contributing
 Fork the repository, create a feature branch, and open a pull request with a concise description, screenshots if UI, and tests where applicable for quick and fair reviews[web:45].
+
 
 
